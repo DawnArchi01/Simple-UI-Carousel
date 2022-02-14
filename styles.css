@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: azure;
+    min-height: 100vh;
+    padding: 0 25px ;
+}
+
+/* Main Wrapper container*/
+.container-slider{
+    position: relative ;
+    max-width: 700px;
+    width: 100% ;
+    height: 400px ;
+    border-radius: 20px ;
+    box-shadow: 0 0 20px rgba(0 , 0 , 0 , 0.5);
+    overflow: hidden ;
+
+}
+
+/* slides container which contains images */
+.slides{
+    position: relative;
+    width: 100% ;
+    height: 100% ;
+}
+
+/* Default image properties */
+.slides img{
+    position: absolute ;
+    width: 50px;
+    height: 50px ;
+    object-fit: cover ;
+    object-position: center ;
+    opacity: 0;
+    transform: scale(0) ;
+    transition: all 0.5s ease-in-out ;
+    transition-delay: 500ms ;
+}
+
+.slides > img[data-active] {
+    opacity: 1;
+    transform: scale(1) ;
+    transition-delay: 0ms;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+/* Image slider next & prev buttons */
+.btn-slide {
+    position: absolute;
+    background: #f1f1f1;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    opacity: 0;
+    border: 1px solid rgba(34, 34, 34, 0.287);
+    transition: opacity 300ms ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.btn-slide > img{
+    width: 100%;
+}
+
+/* Show buttons when user hover on the slide container */
+.container-slider:hover > .btn-slide{
+    opacity: 1;
+}
+
+.prev ,
+.next {
+    top: 50%;
+    transform: translateY(-60%);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* Bottom Dots Container */
+.container-dots{
+    position: absolute;
+    bottom: 20px;
+    width: 100% ;
+    display: flex;
+    justify-content: center;
+    z-index: 10 ;
+}
+
+/* Single dot style */
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 3px solid #f1f1f1;
+    margin: 0 5px;
+    background: #f1f1f1;
+    cursor: pointer;
+    transition: background-color 500ms ease-in-out;
+}
+
+.dot:hover {
+    opacity: 0.9;
+    background: rgb(32 , 32 , 32);
+}
+
+/* Current or Active dot */
+.dot[data-active = "true"] {
+    background: rgb(32 , 32 , 32);
+}
